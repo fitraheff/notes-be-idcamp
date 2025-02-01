@@ -38,7 +38,7 @@ class NotesService {
             values: [id],
         };
         const result = await this._pool.query(query);
-        console.log('Result from getNoteById:', result.rows);
+        // console.log('Result from getNoteById:', result.rows);
 
         if (!result.rows.length) {
             throw new NotFoundError('Catatan tidak ditemukan');
