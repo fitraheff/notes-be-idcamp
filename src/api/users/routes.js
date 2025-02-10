@@ -4,26 +4,16 @@ const routes = (handler) => [
     path: '/users',
     handler: handler.postUserHandler,
   },
-  // {
-  //   method: 'GET',
-  //   path: '/users',
-  //   handler: handler.getusersHandler,
-  // },
   {
     method: 'GET',
     path: '/users/{id}',
     handler: handler.getUserByIdHandler,
   },
-  // {
-  //   method: 'PUT',
-  //   path: '/users/{id}',
-  //   handler: handler.putUserByIdHandler,
-  // },
-  // {
-  //   method: 'DELETE',
-  //   path: '/users/{id}',
-  //   handler: handler.deleteUserByIdHandler,
-  // },
+  {
+    method: 'GET',
+    path: '/users',
+    handler: handler.getUsersByUsernameHandler,
+  },
 ];
 
 module.exports = routes;
