@@ -2,3 +2,4 @@ node_modules/
 .gitignore
 .env
 .prod.env
+src/api/uploads/file
