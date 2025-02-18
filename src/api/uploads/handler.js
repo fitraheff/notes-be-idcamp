@@ -23,6 +23,16 @@ class UploadsHandler {
         });
         response.code(201);
         return response;
+
+        // using S3
+        // const fileLocation = await this._service.writeFile(data, data.hapi);
+
+        /*const response = h.response({
+            status: 'success',
+            data: {
+                fileLocation: filename,
+            },
+        });*/
     }
 }
 

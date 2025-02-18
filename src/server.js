@@ -33,6 +33,10 @@ const uploads = require('./api/uploads');
 const StorageService = require('./services/storage/StorageService');
 const UploadsValidator = require('./validator/uploads');
 
+// uploads Using S3
+// const StorageService = require('./services/S3/StorageService');
+
+
 require('dotenv').config();
 
 const init = async () => {
@@ -45,6 +49,7 @@ const init = async () => {
   const usersService = new UsersService();
   const authenticationsService = new AuthenticationsService();
   const storageService = new StorageService(path.resolve(__dirname, 'api/uploads/file/images'));
+  // const storageService = new StorageService();  // Using S3
 
   const server = Hapi.server({
     port: process.env.PORT,
