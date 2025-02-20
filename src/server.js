@@ -36,6 +36,9 @@ const UploadsValidator = require('./validator/uploads');
 // uploads Using S3
 // const StorageService = require('./services/S3/StorageService');
 
+// cache
+const CacheService = require('./services/redis/CacheService');
+
 
 require('dotenv').config();
 
@@ -44,8 +47,9 @@ const init = async () => {
   // const notesService = new NotesService(collaborationsService);
   // const usersService = new UsersService();
   // const authenticationsService = new AuthenticationsService();
-  const collaborationsService = new CollaborationsService();
-  const notesService = new NotesService(collaborationsService);
+  const cacheService = new CacheService();
+  const collaborationsService = new CollaborationsService(cacheService);
+  const notesService = new NotesService(collaborationsService, cacheService);
   const usersService = new UsersService();
   const authenticationsService = new AuthenticationsService();
   const storageService = new StorageService(path.resolve(__dirname, 'api/uploads/file/images'));
